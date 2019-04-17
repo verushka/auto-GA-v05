@@ -130,6 +130,23 @@ public class CommonEvents {
         return ManageDriver.getInstance().getWebDriver().getTitle();
     }
 
+    public static void setInputField(WebElement webElement, String content) {
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+        webElement.clear();
+        webElement.sendKeys(content);
+    }
+
+
+    /**
+     * This method perform a click action in a web element.
+     *
+     * @param webElement Is the web element that will be pressed.
+     */
+    public static void clickButton(WebElement webElement) {
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.elementToBeClickable(webElement));
+        webElement.click();
+    }
+
     /**
      * This method press enter key to web element.
      *
