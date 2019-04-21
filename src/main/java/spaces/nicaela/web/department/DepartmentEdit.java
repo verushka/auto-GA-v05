@@ -29,6 +29,9 @@ public class DepartmentEdit extends BasePage {
     @FindBy(xpath = "//table[@id='table-departments-list']/tbody/tr[last()]/td[contains(@id, 'department-name')]")
     private WebElement lastRowCodeValue;
 
+    @FindBy(xpath = "//table[@id='table-departments-list']/tbody/tr[last()]/td[contains(@id, 'department-name')]/parent::tr//button[contains(@class, 'fa-pencil')]")
+    private WebElement lastRowButton;
+
     public void submitDepartmentsForm() {
         click(submitDepartment);
     }
@@ -44,12 +47,7 @@ public class DepartmentEdit extends BasePage {
     }
 
     public void optionLastLasDepartmentCreated() {
-        WebElement table = webDriver.findElement(By.id("table-departments-list"));
-        int numOfRow = table.findElements(By.tagName("tr")).size() - 1;
-
-        String itemForEdit = "department-edit-" + numOfRow;
-
-        webDriver.findElement(By.id(itemForEdit)).click();
+        click(lastRowButton);
     }
 
     public String getLastNameEdited() {
