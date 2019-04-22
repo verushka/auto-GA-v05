@@ -4,5 +4,6 @@ public enum WebUrls {
     NICAELA,
     RICARDO,
     BORIS,
-    ALAIN
+    ALAIN,
+    SHOES
 }
