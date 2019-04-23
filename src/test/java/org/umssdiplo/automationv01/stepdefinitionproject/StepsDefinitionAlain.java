@@ -42,12 +42,12 @@ public class StepsDefinitionAlain {
         home.navigateToIncidents();
     }
 
-    @And("^click 'Incidents' menu item in 'Incidents menu'$")
+    @Given("^click 'Incidents' menu item in 'Incidents menu'$")
     public void openIncidentsList() throws Throwable {
         incidentHome.openIncidentsList();
     }
 
-    @And("^click 'Create an incident' menu item in 'Incidents menu'$")
+    @Given("^click 'Create an incident' menu item in 'Incidents menu'$")
     public void openIncidentsForm() throws Throwable {
         incidentHome.openIncidentsForm();
     }
@@ -76,7 +76,7 @@ public class StepsDefinitionAlain {
     }
 
 
-    @And("^click 'submit' button in 'Incidents menu'$")
+    @And("^click 'submit' button in 'Incidents form'$")
     public void submitIncidentsForm() throws Throwable {
         incidentCreate.submitIncidentsForm();
     }
@@ -85,7 +85,7 @@ public class StepsDefinitionAlain {
      * Edition
      */
 
-    @Given("^click 'Edit an incident' button in element with name \"([^\"]*)\" of 'Incidents list'$")
+    @And("^click 'Edit an incident' button in element with name \"([^\"]*)\" of 'Incidents list'$")
     public void navigateToEditIncident(String name) throws Throwable {
         incidentEdit.navigateToEditIncident(name);
     }
@@ -93,7 +93,7 @@ public class StepsDefinitionAlain {
     /**
      * Deletion
      */
-    @Given("^click 'Remove an incident' button in element with name \"([^\"]*)\" of 'Incidents list'$")
+    @And("^click 'Remove an incident' button in element with name \"([^\"]*)\" of 'Incidents list'$")
     public void showDeleteModalSpecificElement(String name) throws Throwable {
         incidentDelete.showDeleteModalSpecificElement(name);
     }
@@ -110,7 +110,6 @@ public class StepsDefinitionAlain {
 
     @Then("^verify incident item with name \"([^\"]*)\" has been deleted of 'Incidents list'$")
     public void verifyIncidentDeleted(String name) {
-        WebElement element = incidentDelete.verifyIncidentDeleted(name);
-        Assert.assertNull(element);
+        Assert.assertNull(incidentDelete.verifyIncidentDeleted(name));
     }
 }
