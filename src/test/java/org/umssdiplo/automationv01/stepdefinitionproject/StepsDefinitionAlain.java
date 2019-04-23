@@ -1,6 +1,6 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
-import com.sun.tools.javac.util.Assert;
+import org.testng.Assert;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -64,9 +64,7 @@ public class StepsDefinitionAlain {
     @Then("^verify incident item with name \"([^\"]*)\" exist in 'Incidents list'$")
     public void verifyIncidentItemWithNameExistInIncidentsList(String name) throws Throwable {
         WebElement element = incidentCreate.getElement(name);
-        if (null == element) {
-            Assert.error("Verification Exception: Incident with name: " + name + " not exists in incident list.");
-        }
+        Assert.assertNotEquals(element, null);
     }
 
     /**
@@ -113,8 +111,6 @@ public class StepsDefinitionAlain {
     @Then("^verify incident item with name \"([^\"]*)\" has been deleted of 'Incidents list'$")
     public void verifyIncidentDeleted(String name) {
         WebElement element = incidentDelete.verifyIncidentDeleted(name);
-        if (null != element) {
-            Assert.error("[" + IncidentDelete.class + "]: Verification Exception: Incident has not been removed from in incident list.");
-        }
+        Assert.assertNull(element);
     }
 }
