@@ -3,6 +3,8 @@ package org.umssdiplo.automationv01.stepdefinitionproject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.testng.Assert;
+import org.umssdiplo.automationv01.core.bootstrap.utils.CommonEvents;
 import spaces.boris.core.LoadPage;
 import spaces.boris.web.Machine;
 
@@ -18,6 +20,11 @@ public class StepsDefinitionBoris {
 
     @And("^click on 'Machine' option from the 'Top Menu' of the main page$")
     public void goToMachineSection() throws Throwable {
+        machine.machineSection();
+    }
+
+    @Given("^click on 'Machine' option from the 'Top Menu' of the main page Care4You$")
+    public void goToMachine() throws Throwable {
         machine.machineSection();
     }
 
@@ -37,23 +44,29 @@ public class StepsDefinitionBoris {
     }
 
 
-    @Then("^verify that the 'Machine' was registered$")
+    @Then("^verify that the 'Machine' is register$")
     public void theMachineWasRegistered() {
 
-       // String URL = CommonEvents.getCurrentUrl();
-       // Assert.assertEquals(URL, "http://localhost:4200/machines/create" );
+       String URL = CommonEvents.getCurrentUrl();
+       Assert.assertEquals(URL, "http://localhost:4200/machines/create" );
     }
 
-    @Then("^verify that the 'Machine' was edited$")
+    @Then("^verify that the 'Machine' is edit$")
     public void theMachineWasEdited() {
 
-        // String URL = CommonEvents.getCurrentUrl();
-        // Assert.assertEquals(URL, "http://localhost:4200/machines/update" );
+       String URL = CommonEvents.getCurrentUrl();
+       Assert.assertEquals(URL, "http://localhost:4200/machines/update" );
     }
 
-    @Then("^verify that the 'Machine' was deleted$")
+    @Then("^verify that the 'Machine' is delete$")
     public void theMachineWasDeleted() {
-        // String URL = CommonEvents.getCurrentUrl();
-        // Assert.assertEquals(URL, "http://localhost:4200/machines/list" );
+        String URL = CommonEvents.getCurrentUrl();
+        Assert.assertEquals(URL, "http://localhost:4200/machines/list" );
+    }
+
+    @Then("^Verify that the 'Machines' are listed$")
+    public void verifyThatTheMachinesAreListed() {
+        String URL = CommonEvents.getCurrentUrl();
+        Assert.assertEquals(URL, "http://localhost:4200/machines/list");
     }
 }
