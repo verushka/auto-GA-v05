@@ -1,4 +1,3 @@
-
 Feature: Home
 
   Background: Home safety equipment page is displayed

@@ -26,6 +26,10 @@ public class CommonEvents {
         webElement.sendKeys(content);
     }
 
+    public static String getCurrentUrl() {
+        return ManageDriver.getInstance().getWebDriver().getCurrentUrl();
+    }
+
     /**
      * This method perform a click action in a web element.
      *
