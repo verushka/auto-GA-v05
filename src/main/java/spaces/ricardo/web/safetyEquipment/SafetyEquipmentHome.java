@@ -8,24 +8,24 @@ import static org.umssdiplo.automationv01.core.bootstrap.utils.CommonEvents.clic
 
 public class SafetyEquipmentHome extends BasePage {
 
-    @FindBy(id = "list-safety-equipment-menu")
-    private WebElement listSafetyEquipmentssOption;
+    @FindBy(id = "add-safety-equipment-home")
+    private WebElement addSafetyOption;
 
-    @FindBy(id = "create-safety-equipment-menu")
-    private WebElement createSafetyEquipmentsOption;
+    @FindBy(id = "list-safety-equipment-home")
+    private WebElement listSafetyOption;
 
     @FindBy(id = "report-safety-equipment-menu")
     private WebElement reportSafetyEquipmentsOption;
 
-    public void openIncidentsList() {
-        click(listSafetyEquipmentssOption);
+    public void openSafetyEquipmentsList() {
+        click(listSafetyOption);
     }
 
-    public void openIncidentsForm() {
-        click(createSafetyEquipmentsOption);
+    public void openCreateSafetyEquipmentsForm() {
+        click(addSafetyOption);
     }
 
-    public void openIncidentsReport() {
+    public void openSafetyEquipmentsReport() {
         click(reportSafetyEquipmentsOption);
     }
 }

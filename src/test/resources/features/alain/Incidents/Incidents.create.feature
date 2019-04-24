@@ -6,12 +6,12 @@ Feature: Create and Incident
     And click 'Create an incident' menu item in 'Incidents menu'
 
   Scenario Outline: Verify creation of incident
-    Given Fill 'Incident form' information
-      | name   | description   | date   | type   | severity   | employeeId   |
-      | <name> | <description> | <date> | <type> | <severity> | <employeeId> |
-    And click 'submit' button in 'Incidents menu'
+    Given Fill 'Safety equipment form' information on 'Create an Safety equipment page'
+      | code   | name   | description   | stock   | image   |
+      | <code> | <name> | <description> | <stock> | <image> |
+    And click 'submit' button in 'Safety equipments Form'
     Then verify incident item with name "<name>" exist in 'Incidents list'
 
     Examples:
-      | name           | description | date                    | type     | severity | employeeId |
-      | Injury by fire | EJEMPLO     | Tuesday, April 16, 2019 | FRACTURE | HIGH     | Juan Pinto |
+      | code   | name   | description   | stock   | image   |
+      | Code-00A1 | Safety fires  | Safety Equipment for fires | 10 | image001  |

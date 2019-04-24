@@ -16,31 +16,51 @@ public class SafetyEquipmentCreate extends BasePage {
     @FindBy(id = "code")
     private WebElement codeField;
 
+    @FindBy(id = "stock")
+    private WebElement stockField;
+
     @FindBy(id = "description")
     private WebElement descriptionField;
 
-    @FindBy(id = "type")
+    @FindBy(id = "select-type")
     private WebElement typeField;
+
+    @FindBy(id = "add-file-safety")
+    private WebElement addFileField;
+
+    @FindBy(id = "option-safety-1")
+    private WebElement option1Field;
+
+    @FindBy(id = "option-safety-2")
+    private WebElement option2Field;
+
+    @FindBy(id = "option-safety-3")
+    private WebElement option3Field;
 
     @FindBy(id = "submit")
     private WebElement submitButton;
 
-    public void fillIncidentsForm(SafetyEquipment safetyEquipment) {
-        setValue(nameField, safetyEquipment.getName());
-        setValue(descriptionField, safetyEquipment.getDescription());
+    @FindBy(xpath = "//table[@id='table-safety-equipment-list']/tbody/tr[last()]/td[contains(@id, 'safety-codes')]")
+    private WebElement lastRowCodeValueSafety;
+
+    public void fillSafetyEquipmentsForm(SafetyEquipment safetyEquipment) {
         setValue(descriptionField, safetyEquipment.getCode());
-//        setValueNoEditable(typeField, safetyEquipment.getType());
+        setValue(nameField, safetyEquipment.getName());
+        setValue(stockField, safetyEquipment.getStock().toString());
+        setValueNoEditable(typeField, "TRAUMATOLOGY");
+        setValue(descriptionField, safetyEquipment.getDescription());
+        click(option2Field);
     }
 
-    public void submitIncidentsForm() {
+    public void submitSafetyEquipmentsForm() {
         click(submitButton);
     }
 
-    public WebElement getElement(String name) {
-        return findByXPath(("//td[contains(text(), '" + name + "')]"));
+    public WebElement getElement(String code) {
+        return findByXPath(("//td[contains(text(), '" + code + "')]"));
     }
 
-    private static String getDate(String date) {
-        return "//div[@aria-label='" + date + "']";
+    public String getLastCodeCreated() {
+        return getTextContent(lastRowCodeValueSafety);
     }
 }

@@ -24,8 +24,12 @@ public class SafetyEquipmentDelete extends BasePage {
     }
 
     public void showDeleteModalSpecificElement(String name) {
-        WebElement element = findByXPath(("//td[contains(text(), '" + name + "')]/parent::tr//button[contains(@class, 'fa-trash')]"));
+        WebElement element = getElement(name);
         click(element);
+    }
+
+    public WebElement getElement(String name) {
+        return findByXPath(("//td[contains(text(), '" + name + "')]/parent::tr//button[contains(@class, 'fa-trash')]"));
     }
 
     public WebElement verifyIncidentDeleted(String name) {

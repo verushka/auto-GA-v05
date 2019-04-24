@@ -14,11 +14,18 @@ public class Home extends BasePage {
     @FindBy(id = "root-safety-equipment-home")
     private WebElement homeOption;
 
+    @FindBy(id = "add-safety-equipment-list")
+    private WebElement listAddSafetyOption;
+
     public void navigateToSafetyEquipment() {
         click(safetyEquipmentOption);
     }
 
     public void navigateToHome() {
         click(homeOption);
+    }
+
+    public void navigateToListAdd() {
+        click(listAddSafetyOption);
     }
 }
