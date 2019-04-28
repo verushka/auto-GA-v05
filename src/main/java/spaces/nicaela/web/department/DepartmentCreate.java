@@ -22,8 +22,18 @@ public class DepartmentCreate extends BasePage {
     @FindBy(id = "department-submit")
     private WebElement submitDepartment;
 
+    @FindBy(id = "department-create-code-error")
+    private WebElement messageErrorCode;
+
+    @FindBy(id = "department-create-name-error")
+    private WebElement messageErrorName;
+
+    @FindBy(id = "create-departments-menu")
+    private WebElement createDepartmentOption;
+
     @FindBy(xpath = "//table[@id='table-departments-list']/tbody/tr[last()]/td[contains(@id, 'department-code')]")
     private WebElement lastRowCodeValue;
+
 
     public void submitDepartmentsForm() {
         click(submitDepartment);
@@ -38,4 +48,29 @@ public class DepartmentCreate extends BasePage {
     public String getLastCodeAdded() {
         return getTextContent(lastRowCodeValue);
     }
+
+
+    public String getMessageErrorCode() {
+        submitDepartmentsForm();
+        return getTextContent(messageErrorCode);
+    }
+
+    public String getMessageErrorName() {
+        submitDepartmentsForm();
+        return getTextContent(messageErrorCode);
+    }
+
+    public String getContentCode() {
+        return getTextContent(codeInput);
+    }
+
+    public String getContentName() {
+        return getTextContent(nameInput);
+    }
+
+    public String getContentCreateDepartmentOption() {
+        return getTextContent(createDepartmentOption);
+    }
+
+
 }

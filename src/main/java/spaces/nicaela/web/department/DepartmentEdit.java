@@ -32,6 +32,12 @@ public class DepartmentEdit extends BasePage {
     @FindBy(xpath = "//table[@id='table-departments-list']/tbody/tr[last()]/td[contains(@id, 'department-name')]/parent::tr//button[contains(@class, 'fa-pencil')]")
     private WebElement lastRowButton;
 
+    @FindBy(xpath = "//table[@id='table-departments-list']/tbody/tr[last()]//parent::tr//button[contains(@name, 'Edit department')]")
+    private WebElement lastEditOption;
+
+    @FindBy(xpath = "//form//h5[contains(@class,'department-update-text-title')]")
+    private WebElement formToEditDepartment;
+
     public void submitDepartmentsForm() {
         click(submitDepartment);
     }
@@ -53,5 +59,14 @@ public class DepartmentEdit extends BasePage {
     public String getLastNameEdited() {
         return getTextContent(lastRowCodeValue);
     }
+
+    public Boolean existOptionEditDepartment() {
+        return isPresent(lastEditOption);
+    }
+
+    public Boolean isVisibleFormToEditDepartment() {
+        return isPresent(formToEditDepartment);
+    }
+
 
 }
