@@ -69,4 +69,39 @@ public class StepsDefinitionBoris {
         String URL = CommonEvents.getCurrentUrl();
         Assert.assertEquals(URL, "http://localhost:4200/machines/list");
     }
+
+    @And("^fill the 'Name' option from forms in 'New Machine' page$")
+    public void fillTheNameOptionFromFormsInNewMachinePage() {
+        machine.fillName();
+    }
+
+    @And("^fill the 'Mark' option from forms in 'New Machine' page$")
+    public void fillTheMarkOptionFromFormsInNewMachinePage() {
+        machine.fillMark();
+    }
+
+    @And("^fill the 'Model' option from forms in 'New Machine' page$")
+    public void fillTheModelOptionFromFormsInNewMachinePage() {
+        machine.fillModel();
+    }
+
+    @And("^fill the 'Price' option from forms in 'New Machine' page$")
+    public void fillThePriceOptionFromFormsInNewMachinePage() {
+        machine.fillPrice();
+    }
+
+    @And("^fill the 'Capacity' option from forms in 'New Machine' page$")
+    public void fillTheCapacityOptionFromFormsInNewMachinePage() {
+        machine.fillCapacity();
+    }
+
+    @And("^fill the 'Description' option from forms in 'New Machine' page$")
+    public void fillTheDescriptionOptionFromFormsInNewMachinePage() {
+        machine.fillDescription();
+    }
+
+    @And("^click on 'Submit' option from forms in 'New Machine' page$")
+    public void clickOnSubmitOptionFromFormsInNewMachinePage() {
+        machine.selectSubmit();
+    }
 }

@@ -6,6 +6,13 @@ Feature: machine
 
   Scenario:  Register a machine
     Given click on 'Register new machine' from lateral menu in 'Machine' page
+    And fill the 'Name' option from forms in 'New Machine' page
+    And fill the 'Mark' option from forms in 'New Machine' page
+    And fill the 'Model' option from forms in 'New Machine' page
+    And fill the 'Price' option from forms in 'New Machine' page
+    And fill the 'Capacity' option from forms in 'New Machine' page
+    And fill the 'Description' option from forms in 'New Machine' page
+    And click on 'Submit' option from forms in 'New Machine' page
     Then verify that the 'Machine' is register
 
   Scenario: Edit a machine

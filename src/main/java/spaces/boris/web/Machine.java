@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.bootstrap.managepage.BasePage;
 import org.umssdiplo.automationv01.core.bootstrap.utils.CommonEvents;
+import org.umssdiplo.automationv01.core.bootstrap.utils.Constants;
 import spaces.boris.domain.PropertyAccessor;
 
 public class Machine extends BasePage {
@@ -57,25 +58,47 @@ public class Machine extends BasePage {
 
     public void editMachine() {
         CommonEvents.clickButton(editIcon);
-        String name1 = PropertyAccessor.getInstance().getName1();
+        String name1 = Constants.name1;
         CommonEvents.setInputField(names, name1);
         CommonEvents.clickButton(submit);
     }
 
     public void registerMachine(){
         CommonEvents.clickButton(newMachine);
-        String name = PropertyAccessor.getInstance().getName();
-        String mark = PropertyAccessor.getInstance().getMark();
-        String model = PropertyAccessor.getInstance().getModel();
-        String price = PropertyAccessor.getInstance().getPrice();
-        String description = PropertyAccessor.getInstance().getDescription();
+    }
+
+    public void fillName (){
+        String name = Constants.name;
         CommonEvents.setInputField(names, name);
+    }
+
+    public void fillMark (){
+        String mark = Constants.mark;
         CommonEvents.setInputField(marks, mark);
+    }
+
+    public void fillModel (){
+        String model = Constants.model;
         CommonEvents.setInputField(models, model);
+    }
+
+    public void fillPrice (){
+        String price = Constants.price;
+        CommonEvents.setInputField(prices, price);
+    }
+
+    public void fillCapacity (){
         CommonEvents.clickButton(capacity);
         CommonEvents.clickButton(medium);
-        CommonEvents.setInputField(prices, price);
+    }
+
+    public void fillDescription (){
+        String description = Constants.description;
         CommonEvents.setInputField(descriptions, description);
+    }
+
+    public void selectSubmit () {
         CommonEvents.clickButton(submit);
     }
+
 }
