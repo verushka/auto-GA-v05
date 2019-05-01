@@ -18,7 +18,8 @@ public class Home extends BasePage {
         click(departmentsOption);
     }
 
-    public void navigateToHome() {
-        click(homeOption);
+    public String getOptionDepartment() {
+        return getTextContent(departmentsOption);
     }
+
 }

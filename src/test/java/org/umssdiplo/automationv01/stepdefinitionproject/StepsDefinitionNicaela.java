@@ -1,5 +1,6 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -71,6 +72,36 @@ public class StepsDefinitionNicaela {
         Assert.assertEquals(actualValueName, name, "ERROR MESSAGE: The information of department was not edited correctly");
     }
 
+    @Then("^Verify that 'code field' \"([^\"]*)\" has a message error when pressing submit button and the value is empty$")
+    public void verifyThatHasAMessageErrorWhenIsEmpty(String messageError) throws Throwable {
+        Assert.assertEquals(departmentCreate.getMessageErrorCode(), messageError, "ERROR MESSAGE: The message error is not found");
+    }
+
+    @Then("^Verify that 'name field' \"([^\"]*)\" has a message error when pressing submit button and the value is empty$")
+    public void verifyThatNameFieldHasAMessageErrorWhenPressingSubmitButtonAndTheValueIsEmpty(String messageError) throws Throwable {
+        Assert.assertEquals(departmentCreate.getMessageErrorName(), messageError, "ERROR MESSAGE: The message error is not found");
+    }
+
+    @Then("^Verify that exist \"([^\"]*)\" option 'menu on header'$")
+    public void verifyThatExistOptionMenuOnHeader(String option) throws Throwable {
+        Assert.assertEquals(home.getOptionDepartment(), option, "The option Departments is not found");
+    }
+
+    @Then("^Verify that 'code field' is not empty on form Departments$")
+    public void verifyThatCodeFieldIsNotEmptyOnFormDepartments() {
+        Assert.assertNotNull(departmentCreate.getContentCode(), "The value of code is not empty on department form");
+    }
+
+    @Then("^Verify that 'name field' is not empty on form Departments$")
+    public void verifyThatNameFieldIsNotEmptyOnFormDepartments() {
+        Assert.assertNotNull(departmentCreate.getContentName(), "The value of name is not empty on department form");
+    }
+
+    @Then("^Verify that exist 'Create a department' option on submenu 'Department'$")
+    public void verifyThatExistCreateADepartmentOptionOnSubmenuDepartment() {
+        Assert.assertNotNull(departmentCreate.getContentCreateDepartmentOption(), "The option create department on submenu department is not exist");
+    }
+
     //Edit a department
     @Given("^click 'Edit a department' form information$")
     public void editDepartmentInformationForm() throws Throwable {
@@ -92,6 +123,11 @@ public class StepsDefinitionNicaela {
         departmentEdit.submitDepartmentsForm();
     }
 
+    @Then("^Verify 'edit option' of department created on 'departments' table$")
+    public void verifyEditOptionOfDepartmentCreatedOnDepartmentsTable() {
+        Assert.assertTrue(departmentEdit.existOptionEditDepartment(), "The edit option is not exist");
+    }
+
     // Delete a department
     @And("^click 'Delete a department' form information$")
     public void deleteDepartmentInformationForm() throws Throwable {
@@ -106,5 +142,15 @@ public class StepsDefinitionNicaela {
     @And("^click 'Delete a department with ok' information$")
     public void deleteDepartmentOkForm() throws Throwable {
         departmentDelete.deleteDepartmentOkForm();
+    }
+
+    @Then("^Verify 'delete option' of department created on 'departments' table$")
+    public void verifyDeleteOptionOfDepartmentCreatedOnDepartmentsTable() {
+        Assert.assertTrue(departmentDelete.existOptionDelete());
+    }
+
+    @Then("^Verify that the 'edit form' is visible on 'department screen'$")
+    public void verifyThatTheEditFormIsVisibleOnDepartmentScreen() {
+        Assert.assertTrue(departmentEdit.isVisibleFormToEditDepartment(), "The update form is not visible");
     }
 }

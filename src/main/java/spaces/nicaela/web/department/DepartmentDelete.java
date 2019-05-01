@@ -16,6 +16,9 @@ public class DepartmentDelete extends BasePage {
     @FindBy(id = "department-delete-ok")
     private WebElement deleteDepartmentOk;
 
+    @FindBy(xpath = "//table[@id='table-departments-list']/tbody/tr[last()]//parent::tr//button[contains(@name, 'Delete department')]")
+    private WebElement lastDeleteOption;
+
     public void optionDeleteDepartmentForm() {
         click(deleteDepartment1);
     }
@@ -29,6 +32,10 @@ public class DepartmentDelete extends BasePage {
         int numOfRow = table.findElements(By.tagName("tr")).size() - 1;
         String itemForDelete = "department-delete-" + numOfRow;
         webDriver.findElement(By.id(itemForDelete)).click();
+    }
+
+    public Boolean existOptionDelete(){
+        return isPresent(lastDeleteOption);
     }
 
 }
