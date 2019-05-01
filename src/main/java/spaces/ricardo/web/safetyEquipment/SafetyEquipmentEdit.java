@@ -40,7 +40,10 @@ public class SafetyEquipmentEdit extends BasePage {
     @FindBy(id = "submit-edit")
     private WebElement submitButton;
 
-    public void submitIncidentsForm() {
+    @FindBy(xpath = "//table[@id='table-safety-equipment-list']/tbody/tr[0]/td[contains(@id, 'safety-codes')]")
+    private WebElement firtsRowCodeValueSafety;
+
+    public void submitSafetyForm() {
         click(submitButton);
     }
 
@@ -48,9 +51,11 @@ public class SafetyEquipmentEdit extends BasePage {
         return findByXPath(("//td[contains(text(), '" + name + "')]/parent::tr//button[contains(@class, 'fa-pencil')]"));
     }
 
-    public void navigateToEditSafetyEquipment(String name, SafetyEquipment safetyEquipment) {
-        WebElement element = getElement(name);
-        click(element);
+    public String getFirstCodeUpdated() {
+        return getTextContent(firtsRowCodeValueSafety);
+    }
+
+    public void navigateToEditSafetyEquipment(SafetyEquipment safetyEquipment) {
         setValue(descriptionField, safetyEquipment.getCode());
         setValue(nameField, safetyEquipment.getName());
         setValue(stockField, safetyEquipment.getStock().toString());

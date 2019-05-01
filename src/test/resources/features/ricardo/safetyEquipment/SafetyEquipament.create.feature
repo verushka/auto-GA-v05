@@ -5,12 +5,12 @@ Feature: Create and Safety equipment
     And click 'Create an Safety equipment' Home option in 'Safety equipment home'
 
   Scenario Outline: Verify Safety equipment creation
-    Given Fill 'Incident form' information
-      | name   | description   | date   | type   | severity   | employeeId   |
-      | <name> | <description> | <date> | <type> | <severity> | <employeeId> |
-    And click 'submit' button in 'Incidents menu'
-    Then verify incident item with name "<name>" exist in 'Incidents list'
+    Given Fill 'Safety equipment form' information on 'Create an Safety equipment page'
+      |  code  |  name  |  description  |  stock   |  image  |
+      |  <code>  | <name> | <description> | <stock> | <image> |
+    And click 'submit' button in 'Safety equipments Form'
+    Then verify safety Equipment item with code "<code>" exist in 'Safety equipments list'
 
     Examples:
-      | name           | description | date                    | type     | severity | employeeId |
-      | Injury by fire | EJEMPLO     | Tuesday, April 16, 2019 | FRACTURE | HIGH     | Juan Pinto |
+      | name           | description | date                    | type     | severity |
+      | Injury by fire | EJEMPLO     | Tuesday, April 16, 2019 | FRACTURE | HIGH     |

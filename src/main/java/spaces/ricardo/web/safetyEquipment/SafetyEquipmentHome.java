@@ -17,6 +17,12 @@ public class SafetyEquipmentHome extends BasePage {
     @FindBy(id = "report-safety-equipment-menu")
     private WebElement reportSafetyEquipmentsOption;
 
+    @FindBy(id = "update-1")
+    private WebElement updateSafetyEquipmentsOption;
+
+    @FindBy(id = "delete-1")
+    private WebElement deleteSafetyEquipmentsOption;
+
     public void openSafetyEquipmentsList() {
         click(listSafetyOption);
     }
@@ -27,5 +33,13 @@ public class SafetyEquipmentHome extends BasePage {
 
     public void openSafetyEquipmentsReport() {
         click(reportSafetyEquipmentsOption);
+    }
+
+    public void openSafetyEquipmentsUpdate() {
+        click(updateSafetyEquipmentsOption);
+    }
+
+    public void openSafetyEquipmentsDelete() {
+        click(deleteSafetyEquipmentsOption);
     }
 }
