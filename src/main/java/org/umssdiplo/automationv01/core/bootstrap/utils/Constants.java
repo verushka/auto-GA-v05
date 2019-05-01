@@ -7,4 +7,5 @@ public class Constants {
     public static final String model = "2015";
     public static final String price = "30000";
     public static final String description = "This is a description";
+    public static final String alert = "This field is required.";
 }

@@ -5,7 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.bootstrap.managepage.BasePage;
 import org.umssdiplo.automationv01.core.bootstrap.utils.CommonEvents;
 import org.umssdiplo.automationv01.core.bootstrap.utils.Constants;
-import spaces.boris.domain.PropertyAccessor;
+
+import static org.umssdiplo.automationv01.core.bootstrap.utils.CommonEvents.findByXPath;
 
 public class Machine extends BasePage {
     @FindBy(id = "machines")
@@ -46,6 +47,21 @@ public class Machine extends BasePage {
 
     @FindBy(id = "ok")
     private WebElement ok;
+
+    @FindBy(css = "body > ssi-root > article > section.ssi-body > machines-root > article > section.machines-root-body > machines-create > form > section:nth-child(1) > small.form-text.text-danger")
+    private WebElement alertName;
+
+    @FindBy(css = "body > ssi-root > article > section.ssi-body > machines-root > article > section.machines-root-body > machines-create > form > section:nth-child(2) > small.form-text.text-danger")
+    private WebElement alertMark;
+
+    @FindBy(css = "body > ssi-root > article > section.ssi-body > machines-root > article > section.machines-root-body > machines-create > form > section:nth-child(3) > small.form-text.text-danger")
+    private WebElement alertModel;
+
+    @FindBy(css = "body > ssi-root > article > section.ssi-body > machines-root > article > section.machines-root-body > machines-create > form > section:nth-child(5) > small.form-text.text-danger")
+    private WebElement alertPrice;
+
+    @FindBy(css = "body > ssi-root > article > section.ssi-body > machines-root > article > section.machines-root-body > machines-create > form > section:nth-child(6) > small")
+    private WebElement alertDescription;
 
     public void machineSection() {
         CommonEvents.clickButton(machineSection);
@@ -101,4 +117,23 @@ public class Machine extends BasePage {
         CommonEvents.clickButton(submit);
     }
 
+    public String nameGetText (){
+        return CommonEvents.getTextContent(alertName);
+    }
+
+    public String markGetText (){
+        return CommonEvents.getTextContent(alertMark);
+    }
+
+    public String modelGetText (){
+        return CommonEvents.getTextContent(alertModel);
+    }
+
+    public String priceGetText (){
+        return CommonEvents.getTextContent(alertPrice);
+    }
+
+    public String descriptionGetText (){
+        return CommonEvents.getTextContent(alertDescription);
+    }
 }
