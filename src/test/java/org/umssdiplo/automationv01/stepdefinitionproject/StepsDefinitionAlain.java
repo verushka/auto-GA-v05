@@ -38,6 +38,12 @@ public class StepsDefinitionAlain {
      * Home
      */
 
+    @Then("^verify that 'Incidents' tab exists in 'Header menu'$")
+    public void verifyIncidentsTabExist() throws Throwable {
+        WebElement createIncidentOption = home.getIncidentTab();
+        Assert.assertNotNull(createIncidentOption, Exceptions.NULL_ELEMENT.getException());
+    }
+
     @And("^click on 'Incidents' tab in 'Header menu'$")
     public void navigateToIncidents() throws Throwable {
         home.navigateToIncidents();

@@ -2,6 +2,7 @@ Feature: Create and Incident
 
   Background: Incidents form is displayed
     Given 'Care4You' page is loaded
+    Then verify that 'Incidents' tab exists in 'Header menu'
     And click on 'Incidents' tab in 'Header menu'
 
   #Create
