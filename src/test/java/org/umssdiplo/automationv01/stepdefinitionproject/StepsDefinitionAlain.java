@@ -88,6 +88,36 @@ public class StepsDefinitionAlain {
         incidentCreate.fillIncidentsForm(incident.get(0));
     }
 
+    @And("^fill 'Name' field with \"([^\"]*)\" in 'Incidents form'$")
+    public void fillNameField(String value) throws Throwable {
+        incidentCreate.fillNameField(value);
+    }
+
+    @And("^fill 'Description' field with \"([^\"]*)\" in 'Incidents form'$")
+    public void fillDescriptionField(String value) throws Throwable {
+        incidentCreate.fillDescriptionField(value);
+    }
+
+    @And("^fill 'Date' field with \"([^\"]*)\" in 'Incidents form'$")
+    public void fillDateField(String value) throws Throwable {
+        incidentCreate.fillDateField(value);
+    }
+
+    @And("^fill 'Type' field with \"([^\"]*)\" in 'Incidents form'$")
+    public void fillTypeField(String value) throws Throwable {
+        incidentCreate.fillTypeField(value);
+    }
+
+    @And("^fill 'Severity' field with \"([^\"]*)\" in 'Incidents form'$")
+    public void fillSeverityField(String value) throws Throwable {
+        incidentCreate.fillSeverityField(value);
+    }
+
+    @And("^fill 'Employee' field with \"([^\"]*)\" in 'Incidents form'$")
+    public void fillEmployeeField(String value) throws Throwable {
+        incidentCreate.fillEmployeeField(value);
+    }
+
     @Then("^verify that 'submit' button from 'Incidents form' exist$")
     public void verifySubmitIncidentBtnExist() throws Throwable {
         WebElement submitButton = incidentCreate.getSubmitButton();

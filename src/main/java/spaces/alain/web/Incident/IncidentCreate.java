@@ -55,6 +55,31 @@ public class IncidentCreate extends BasePage {
         setValueNoEditable(employeeIdField, incident.getEmployeeId());
     }
 
+    public void fillNameField(String value) {
+        setValue(nameField, value);
+    }
+
+    public void fillDescriptionField(String value) {
+        setValue(descriptionField, value);
+    }
+
+    public void fillDateField(String value) {
+        click(dateField);
+        click(findByXPath(getDate(value)));
+    }
+
+    public void fillTypeField(String value) {
+        setValueNoEditable(typeField, value);
+    }
+
+    public void fillSeverityField(String value) {
+        setValueNoEditable(severityField, value);
+    }
+
+    public void fillEmployeeField(String value) {
+        setValueNoEditable(employeeIdField, value);
+    }
+
     public WebElement getNameLabelRequired() {
         return alertNameField;
     }

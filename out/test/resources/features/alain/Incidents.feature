@@ -9,16 +9,19 @@ Feature: Create and Incident
   Scenario Outline: Verify creation of an incident
     Then verify that 'Create an incident' menu item exists in 'lateral Incidents menu'
     And click on 'Create an incident' menu item from 'lateral Incidents menu'
+    Then verify that 'submit' button from 'Incidents form' exist
     And click on 'submit' button from 'Incidents form'
     Then verify that field 'Name' is required in 'Incidents form'
     Then verify that field 'Date' is required in 'Incidents form'
     Then verify that field 'Type' is required in 'Incidents form'
     Then verify that field 'Severity' is required in 'Incidents form'
     Then verify that field 'Employee' is required in 'Incidents form'
-    And Fill 'Incident form' information
-      | name   | description   | date   | type   | severity   | employeeId   |
-      | <name> | <description> | <date> | <type> | <severity> | <employeeId> |
-    Then verify that 'submit' button from 'Incidents form' exist
+    And fill 'Name' field with "<name>" in 'Incidents form'
+    And fill 'Description' field with "<description>" in 'Incidents form'
+    And fill 'Date' field with "<date>" in 'Incidents form'
+    And fill 'Type' field with "<type>" in 'Incidents form'
+    And fill 'Severity' field with "<severity>" in 'Incidents form'
+    And fill 'Employee' field with "<employeeId>" in 'Incidents form'
     And click on 'submit' button from 'Incidents form'
     Then verify incident item with name "<name>" exist in 'Incidents list'
 
@@ -30,9 +33,12 @@ Feature: Create and Incident
   Scenario Outline: : Verify edition of incident
     Given click 'Incidents' menu item in 'Incidents menu'
     And click 'Edit an incident' button in element with name "<name>" of 'Incidents list'
-    And Fill 'Incident form' information
-      | name    | description    | date    | type    | severity    | employeeId    |
-      | <ename> | <edescription> | <edate> | <etype> | <eseverity> | <eemployeeId> |
+    And fill 'Name' field with "<ename>" in 'Incidents form'
+    And fill 'Description' field with "<edescription>" in 'Incidents form'
+    And fill 'Date' field with "<edate>" in 'Incidents form'
+    And fill 'Type' field with "<etype>" in 'Incidents form'
+    And fill 'Severity' field with "<eseverity>" in 'Incidents form'
+    And fill 'Employee' field with "<eemployeeId>" in 'Incidents form'
     And click on 'submit' button from 'Incidents form'
     Then verify incident item with name "<ename>" exist in 'Incidents list'
 
