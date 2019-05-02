@@ -30,6 +30,21 @@ public class IncidentCreate extends BasePage {
     @FindBy(id = "submit")
     private WebElement submitButton;
 
+    @FindBy(xpath = "//small[@data-alert='name']")
+    private WebElement alertNameField;
+
+    @FindBy(xpath = "//small[@data-alert='date']")
+    private WebElement alertDateField;
+
+    @FindBy(xpath = "//small[@data-alert='type']")
+    private WebElement alertTypeField;
+
+    @FindBy(xpath = "//small[@data-alert='severity']")
+    private WebElement alertSeverityField;
+
+    @FindBy(xpath = "//small[@data-alert='employee']")
+    private WebElement alertEmployeeField;
+
     public void fillIncidentsForm(Incident incident) {
         setValue(nameField, incident.getName());
         setValue(descriptionField, incident.getDescription());
@@ -40,12 +55,40 @@ public class IncidentCreate extends BasePage {
         setValueNoEditable(employeeIdField, incident.getEmployeeId());
     }
 
+    public WebElement getNameLabelRequired() {
+        return alertNameField;
+    }
+
+    public WebElement getDateLabelRequired() {
+        return alertDateField;
+    }
+
+    public WebElement getTypeLabelRequired() {
+        return alertTypeField;
+    }
+
+    public WebElement getSeverityLabelRequired() {
+        return alertSeverityField;
+    }
+
+    public WebElement getEmployeeLabelRequired() {
+        return alertEmployeeField;
+    }
+
+    public WebElement getSubmitButton() {
+        return submitButton;
+    }
+
     public void submitIncidentsForm() {
         click(submitButton);
     }
 
     public WebElement getElement(String name) {
         return findByXPath(("//td[contains(text(), '" + name + "')]"));
+    }
+
+    public String getFieldRequiredLabel() {
+        return "This field is required.";
     }
 
     private static String getDate(String date) {

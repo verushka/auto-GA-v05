@@ -2,20 +2,28 @@ Feature: Create and Incident
 
   Background: Incidents form is displayed
     Given 'Care4You' page is loaded
-    And click 'Incidents' tab in 'Header menu'
+    And click on 'Incidents' tab in 'Header menu'
 
   #Create
-  Scenario Outline: Verify creation of incident
-    Given click 'Create an incident' menu item in 'Incidents menu'
+  Scenario Outline: Verify creation of an incident
+    Then verify that 'Create an incident' menu item exists in 'lateral Incidents menu'
+    And click on 'Create an incident' menu item from 'lateral Incidents menu'
+    And click on 'submit' button from 'Incidents form'
+    Then verify that field 'Name' is required in 'Incidents form'
+    Then verify that field 'Date' is required in 'Incidents form'
+    Then verify that field 'Type' is required in 'Incidents form'
+    Then verify that field 'Severity' is required in 'Incidents form'
+    Then verify that field 'Employee' is required in 'Incidents form'
     And Fill 'Incident form' information
       | name   | description   | date   | type   | severity   | employeeId   |
       | <name> | <description> | <date> | <type> | <severity> | <employeeId> |
-    And click 'submit' button in 'Incidents form'
+    Then verify that 'submit' button from 'Incidents form' exist
+    And click on 'submit' button from 'Incidents form'
     Then verify incident item with name "<name>" exist in 'Incidents list'
 
     Examples:
-      | name           | description | date                    | type     | severity | employeeId |
-      | Injury by fire | EJEMPLO     | Tuesday, April 16, 2019 | FRACTURE | HIGH     | Juan Pinto |
+      | name           | description | date                  | type     | severity | employeeId |
+      | Injury by fire | EJEMPLO     | Thursday, May 2, 2019 | FRACTURE | HIGH     | Juan Pinto |
 
   #Edit
   Scenario Outline: : Verify edition of incident
@@ -24,12 +32,12 @@ Feature: Create and Incident
     And Fill 'Incident form' information
       | name    | description    | date    | type    | severity    | employeeId    |
       | <ename> | <edescription> | <edate> | <etype> | <eseverity> | <eemployeeId> |
-    And click 'submit' button in 'Incidents form'
+    And click on 'submit' button from 'Incidents form'
     Then verify incident item with name "<ename>" exist in 'Incidents list'
 
     Examples:
-      | name           | ename              | edescription          | edate                  | etype    | eseverity | eemployeeId |
-      | Injury by fire | My incident EDITED | My description EDITED | Friday, April 19, 2019 | FRACTURE | HIGH      | Juan Pinto  |
+      | name           | ename              | edescription          | edate                | etype    | eseverity | eemployeeId |
+      | Injury by fire | My incident EDITED | My description EDITED | Friday, May 17, 2019 | FRACTURE | HIGH      | Juan Pinto  |
 
   #Delete
   Scenario: Verify deletion of incident

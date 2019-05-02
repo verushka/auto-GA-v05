@@ -25,6 +25,10 @@ public class IncidentHome extends BasePage {
         click(createIncidentsOption);
     }
 
+    public WebElement getCreateAnIncidentOption() {
+        return createIncidentsOption;
+    }
+
     public void openIncidentsReport() {
         click(reportIncidentsOption);
     }
