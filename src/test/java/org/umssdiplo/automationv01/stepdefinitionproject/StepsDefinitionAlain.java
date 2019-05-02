@@ -77,7 +77,7 @@ public class StepsDefinitionAlain {
     @Then("^verify incident item with name \"([^\"]*)\" exist in 'Incidents list'$")
     public void verifyIncidentItemWithNameExistInIncidentsList(String name) throws Throwable {
         WebElement element = incidentCreate.getElement(name);
-        Assert.assertNotEquals(element, null, Exceptions.ITEM_NOT_FOUND.getException(name));
+        Assert.assertNotNull(element, Exceptions.ITEM_NOT_FOUND.getException(name));
     }
 
     /**
