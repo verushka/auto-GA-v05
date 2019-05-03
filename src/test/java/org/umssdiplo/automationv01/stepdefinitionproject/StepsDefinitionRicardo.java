@@ -49,7 +49,7 @@ public class StepsDefinitionRicardo {
     }
 
     @And("^click 'List Safety equipment' Home option in 'Safety equipment home'$")
-    public void openSafetyEquipmentsList() throws Throwable {
+    public void navigateToSafetyEquipmentsList() throws Throwable {
         safetyEquipmentHome.openSafetyEquipmentsList();
     }
 
@@ -75,14 +75,14 @@ public class StepsDefinitionRicardo {
      * Create Safety Equipments
      */
 
-    @And("^Fill 'Safety equipment form' information on 'Create an Safety equipment page'$")
-    public void enterIncidentsFormInformation(List<SafetyEquipment> safetyEquipmentList) throws Throwable {
+    @And("^Fill 'Safety equipment form' information on 'Create a Safety equipment page'$")
+    public void fillCreateSafetyEquipmentsForm(List<SafetyEquipment> safetyEquipmentList) throws Throwable {
         safetyEquipmentCreate.fillSafetyEquipmentsForm(safetyEquipmentList.get(0));
     }
 
 
     @And("^click 'submit' button in 'Safety equipments Form'$")
-    public void submitIncidentsForm() throws Throwable {
+    public void submitCreateSafetyEquipmentsForm() throws Throwable {
         safetyEquipmentCreate.submitSafetyEquipmentsForm();
     }
 
@@ -97,48 +97,53 @@ public class StepsDefinitionRicardo {
      * Edit Safety Equipments
      */
 
-    @Given("^click 'Edit a Safety equipment' form information of 'Safety equipment list'$")
-    public void editDepartmentInformationForm() throws Throwable {
+    @Given("^click 'Edit a Safety equipment' option in 'Safety equipment list'$")
+    public void navigateToEditSafetyEquipmentForm() throws Throwable {
         safetyEquipmentHome.openSafetyEquipmentsUpdate();
     }
 
-    @And("^click 'Edit an incident' button in element with name \"([^\"]*)\" of 'Incidents list'$")
-    public void navigateToEditIncident(List<SafetyEquipment> safetyEquipmentList) throws Throwable {
+    @And("^Fill 'Safety equipment form' information on 'Update a Safety equipment page$")
+    public void fillEditSafetyEquipmentForm(List<SafetyEquipment> safetyEquipmentList) throws Throwable {
         safetyEquipmentEdit.navigateToEditSafetyEquipment(safetyEquipmentList.get(0));
     }
 
     @And("^click 'Submit a Safety Equipment updated' form information$")
-    public void submitDepartmentEditedInformationForm() throws Throwable {
+    public void submitUpdateSafetyEquipmentForm() throws Throwable {
         safetyEquipmentEdit.submitSafetyForm();
     }
 
     @Then("^The \"([^\"]*)\" of 'Code' field value is displayed in 'Safety equipment list'$")
-    public void verifyCodeFieldValueIsDisplayedInSafetyEquipments(String code) throws Throwable {
+    public void verifyCodeFieldIsDisplayedInSafetyEquipments(String code) throws Throwable {
         String actualValueName = safetyEquipmentEdit.getFirstCodeUpdated();
 
         org.testng.Assert.assertEquals(actualValueName, code, "ERROR MESSAGE: The Safety equipment was not created correctly");
     }
 
     /**
-     * Deletion
+     * Delete Safety Equipment
      */
-    @And("^click 'Remove an incident' button in element with name \"([^\"]*)\" of 'Incidents list'$")
+    @And("^click 'Remove a Safety Equipment' option in 'Safety equipment list'$")
+    public void navigateToDeleteModalSafetyEquipment() throws Throwable {
+        safetyEquipmentHome.openSafetyEquipmentsDelete();
+    }
+
+    @And("^click 'Remove a Safety equipment' option with code \"([^\"]*)\" of 'Safety equipment list'$")
     public void showDeleteModalSpecificElement(String name) throws Throwable {
         safetyEquipmentDelete.showDeleteModalSpecificElement(name);
     }
 
     @And("^click 'Ok' button from deletion modal$")
-    public void deleteIncident() throws Throwable {
+    public void deleteSafetyEquipment() throws Throwable {
         safetyEquipmentDelete.deleteSafetyEquipment();
     }
 
     @And("^click 'Cancel' button from deletion modal$")
-    public void cancelIncident() throws Throwable {
+    public void cancelSafetyEquipment() throws Throwable {
         safetyEquipmentDelete.cancelSafetyEquipment();
     }
 
-    @Then("^verify incident item with name \"([^\"]*)\" has been deleted of 'Incidents list'$")
-    public void verifyIncidentDeleted(String name) {
+    @Then("^verify 'Safety equipment' item with name \"([^\"]*)\" has been deleted of 'Safety equipment list'$")
+    public void verifySafetyEquipmentDeleted(String name) {
         org.testng.Assert.assertNull(safetyEquipmentDelete.verifyIncidentDeleted(name));
     }
 }
