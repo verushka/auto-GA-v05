@@ -8,7 +8,7 @@ Feature: Department
   Scenario: Verify options on submenu departments
     Then Verify that exist 'Create a department' option on submenu 'Department'
 
-
+  #Create
   Scenario Outline:  Create a department form information
     Given click 'Create a department' menu item in 'Departments menu
     Then Verify that 'code field' "This field is required." has a message error when pressing submit button and the value is empty
@@ -30,7 +30,7 @@ Feature: Department
   Scenario: Verify that department registered has 'edit option' on table departments
     Then Verify 'edit option' of department created on 'departments' table
 
-
+  #Edit
   Scenario Outline: Edit a department form information
     Given click 'Edit last department created' form information
     Then Verify that the 'edit form' is visible on 'department screen'
@@ -47,7 +47,7 @@ Feature: Department
   Scenario: Verify that department registered has 'delete option' on table departments
     Then Verify 'delete option' of department created on 'departments' table
 
-
+  #Delete
   Scenario: Departments form is displayed
     And click 'Delete last department created' form information
     And click 'Delete a department with ok' information
