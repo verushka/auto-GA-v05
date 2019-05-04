@@ -12,13 +12,13 @@ repositories {
     mavenCentral()
 }
 
-buildscript{
-    repositories{
+buildscript {
+    repositories {
         jcenter()
-        maven{ url "http://repo.bodar.com"}
+        maven { url "http://repo.bodar.com" }
     }
 
-    dependencies{
+    dependencies {
         classpath 'net.masterthought:cucumber-reporting:3.17.1'
     }
 }
@@ -37,6 +37,8 @@ dependencies {
     testCompile group: 'info.cukes', name: 'cucumber-testng', version: '1.2.5'
 }
 
+ext.feature = project.hasProperty('feature') ? project.getProperty('feature') : 'all'
+
 task runFeatures(type: Test) {
     // enable TestNG support (default is JUnit)
     useTestNG()
@@ -44,6 +46,7 @@ task runFeatures(type: Test) {
     options {
         jvmArgs = ['-Dcucumber.options= ' +
                            '--glue org.umssdiplo.automationv01 ' +
+                           '--tags @' + feature + ' ' +
                            '--plugin pretty ' +
                            '--plugin json:build/cucumber/cucumber.json ' +
                            '--plugin rerun:build/cucumber/rerun.txt ']
@@ -66,7 +69,7 @@ task runFeatures(type: Test) {
     }
 }
 
-def generateReport(String pathCucumber, String pathReport){
+def generateReport(String pathCucumber, String pathReport) {
     File reportOutputDirectory = new File(pathReport)
     List<String> jsonFiles = new ArrayList<>()
     jsonFiles.add(pathCucumber)

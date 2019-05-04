@@ -1,3 +1,5 @@
+@all
+@machine
 Feature: machine
 
   Background: Initialize

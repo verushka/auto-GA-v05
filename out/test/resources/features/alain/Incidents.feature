@@ -1,3 +1,5 @@
+@all
+@incident
 Feature: Create and Incident
 
   Background: Incidents form is displayed

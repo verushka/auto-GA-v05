@@ -1,3 +1,5 @@
+@all
+@department
 Feature: Department
 
   Background: Departments list is displayed
