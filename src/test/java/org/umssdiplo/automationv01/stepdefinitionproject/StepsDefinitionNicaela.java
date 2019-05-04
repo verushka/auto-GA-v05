@@ -58,26 +58,26 @@ public class StepsDefinitionNicaela {
         departmentCreate.submitDepartmentsForm();
     }
 
-    @Then("^The \"([^\"]*)\"'Scode' field value is displayed in 'Departments$")
+    @Then("^The \"([^\"]*)\"'code' field value is displayed in 'Departments$")
     public void verifyCodeFieldValueIsDisplayedInDepartments(String code) throws Throwable {
         String actualValueCode = departmentCreate.getLastCodeAdded();
 
         Assert.assertEquals(actualValueCode, code, "ERROR MESSAGE: The information of department was not created correctly");
     }
 
-    @Then("^The \"([^\"]*)\"'Name-value' field value is edited in 'Departments$")
+    @Then("^Verify that \"([^\"]*)\" 'name' is edited in 'Departments'$")
     public void verifyCodeFieldValueEditedInDepartments(String name) throws Throwable {
         String actualValueName = departmentEdit.getLastNameEdited();
 
         Assert.assertEquals(actualValueName, name, "ERROR MESSAGE: The information of department was not edited correctly");
     }
 
-    @Then("^Verify that 'code field' \"([^\"]*)\" has a message error when pressing submit button and the value is empty$")
+    @Then("^Verify that 'code field' \"([^\"]*)\" is required on 'Create department'form$")
     public void verifyThatHasAMessageErrorWhenIsEmpty(String messageError) throws Throwable {
         Assert.assertEquals(departmentCreate.getMessageErrorCode(), messageError, "ERROR MESSAGE: The message error is not found");
     }
 
-    @Then("^Verify that 'name field' \"([^\"]*)\" has a message error when pressing submit button and the value is empty$")
+    @Then("^Verify that 'name field' \"([^\"]*)\" is required on 'Create department'form$")
     public void verifyThatNameFieldHasAMessageErrorWhenPressingSubmitButtonAndTheValueIsEmpty(String messageError) throws Throwable {
         Assert.assertEquals(departmentCreate.getMessageErrorName(), messageError, "ERROR MESSAGE: The message error is not found");
     }
@@ -123,7 +123,7 @@ public class StepsDefinitionNicaela {
         departmentEdit.submitDepartmentsForm();
     }
 
-    @Then("^Verify 'edit option' of department created on 'departments' table$")
+    @Then("^Verify that 'department registered' has 'edit' option$")
     public void verifyEditOptionOfDepartmentCreatedOnDepartmentsTable() {
         Assert.assertTrue(departmentEdit.existOptionEditDepartment(), "The edit option is not exist");
     }
@@ -144,12 +144,12 @@ public class StepsDefinitionNicaela {
         departmentDelete.deleteDepartmentOkForm();
     }
 
-    @Then("^Verify 'delete option' of department created on 'departments' table$")
+    @Then("^Verify 'department registered' has 'delete' option$")
     public void verifyDeleteOptionOfDepartmentCreatedOnDepartmentsTable() {
         Assert.assertTrue(departmentDelete.existOptionDelete());
     }
 
-    @Then("^Verify that the 'edit form' is visible on 'department screen'$")
+    @Then("^Verify that the 'edit' form is visible on 'left panel'$")
     public void verifyThatTheEditFormIsVisibleOnDepartmentScreen() {
         Assert.assertTrue(departmentEdit.isVisibleFormToEditDepartment(), "The update form is not visible");
     }

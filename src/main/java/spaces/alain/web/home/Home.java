@@ -14,6 +14,10 @@ public class Home extends BasePage {
     @FindBy(id = "root-incidents-home")
     private WebElement homeOption;
 
+    public WebElement getIncidentTab() {
+        return incidentsOption;
+    }
+
     public void navigateToIncidents() {
         click(incidentsOption);
     }

@@ -1,3 +1,5 @@
+@all
+@department
 Feature: Department
 
   Background: Departments list is displayed
@@ -8,46 +10,46 @@ Feature: Department
   Scenario: Verify options on submenu departments
     Then Verify that exist 'Create a department' option on submenu 'Department'
 
-
+  #Create
   Scenario Outline:  Create a department form information
     Given click 'Create a department' menu item in 'Departments menu
-    Then Verify that 'code field' "This field is required." has a message error when pressing submit button and the value is empty
-    Then Verify that 'name field' "This field is required." has a message error when pressing submit button and the value is empty
+    Then Verify that 'code field' "This field is required." is required on 'Create department'form
+    Then Verify that 'name field' "This field is required." is required on 'Create department'form
     And Enter 'Data of a department' form information
-      | code    | name    | description    |
-      | <scode> | <sname> | <sdescription> |
+      | code   | name   | description   |
+      | <code> | <name> | <description> |
     Then Verify that 'code field' is not empty on form Departments
     Then Verify that 'name field' is not empty on form Departments
     And click 'Submit a department' form information
-    Then The "<scode>"'Scode' field value is displayed in 'Departments
+    Then The "<code>"'code' field value is displayed in 'Departments
 
 
     Examples:
-      | scode                       | sname                  | sdescription         |
+      | code                        | name                   | description          |
       | department-machine-recently | Maintenance of machine | Operation of machine |
 
 
   Scenario: Verify that department registered has 'edit option' on table departments
-    Then Verify 'edit option' of department created on 'departments' table
+    Then Verify that 'department registered' has 'edit' option
 
-
+  #Edit
   Scenario Outline: Edit a department form information
     Given click 'Edit last department created' form information
-    Then Verify that the 'edit form' is visible on 'department screen'
+    Then Verify that the 'edit' form is visible on 'left panel'
     And Enter 'Data to edit a department' form information
       | code         | name         | description         |
       | <code-value> | <name-value> | <value-description> |
     And click 'Submit a department edited' form information
-    Then The "<name-value>"'Name-value' field value is edited in 'Departments
+    Then Verify that "<name-value>" 'name' is edited in 'Departments'
 
     Examples:
       | code-value                   | name-value       | value-description     |
       | department-edited-recently 1 | Operation edited | My description edited |
 
   Scenario: Verify that department registered has 'delete option' on table departments
-    Then Verify 'delete option' of department created on 'departments' table
+    Then Verify 'department registered' has 'delete' option
 
-
+  #Delete
   Scenario: Departments form is displayed
     And click 'Delete last department created' form information
     And click 'Delete a department with ok' information
