@@ -44,7 +44,7 @@ public class SafetyEquipmentCreate extends BasePage {
     private WebElement lastRowCodeValueSafety;
 
     public void fillSafetyEquipmentsForm(SafetyEquipment safetyEquipment) {
-        setValue(descriptionField, safetyEquipment.getCode());
+        setValue(codeField, safetyEquipment.getCode());
         setValue(nameField, safetyEquipment.getName());
         setValue(stockField, safetyEquipment.getStock().toString());
         setValueNoEditable(typeField, "TRAUMATOLOGY");

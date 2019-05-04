@@ -15,11 +15,11 @@ public class SafetyEquipmentDelete extends BasePage {
     @FindBy(id = "modal-cancel")
     private WebElement cancelButton;
 
-    public void deleteSafetyEquipment() {
+    public void deleteASafetyEquipment() {
         click(confirmButton);
     }
 
-    public void cancelSafetyEquipment() {
+    public void cancelASafetyEquipment() {
         click(cancelButton);
     }
 

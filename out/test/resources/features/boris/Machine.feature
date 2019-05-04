@@ -5,7 +5,7 @@ Feature: machine
     And click on 'Machine' option from the 'Top Menu' of the main page
 
   Scenario:  Register a machine
-    And click on 'Register new machine' from lateral menu in 'Machine' page
+    Given click on 'Register new machine' from lateral menu in 'Machine' page
     And click on 'Submit' option from forms in 'New Machine' page
     Then Verify that 'Name' option is required
     Then Verify that 'Mark' option is required

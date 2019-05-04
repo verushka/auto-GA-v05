@@ -132,14 +132,14 @@ public class StepsDefinitionRicardo {
         safetyEquipmentDelete.showDeleteModalSpecificElement(name);
     }
 
-    @And("^click 'Ok' button from deletion modal$")
-    public void deleteSafetyEquipment() throws Throwable {
-        safetyEquipmentDelete.deleteSafetyEquipment();
+    @And("^click 'Ok' Option from deletion Safety Equipment$")
+    public void deleteOptionSafetyEquipment() throws Throwable {
+        safetyEquipmentDelete.deleteASafetyEquipment();
     }
 
-    @And("^click 'Cancel' button from deletion modal$")
-    public void cancelSafetyEquipment() throws Throwable {
-        safetyEquipmentDelete.cancelSafetyEquipment();
+    @And("^click 'Cancel' Option from deletion Safety Equipment$")
+    public void cancelModalSafetyEquipment() throws Throwable {
+        safetyEquipmentDelete.cancelASafetyEquipment();
     }
 
     @Then("^verify 'Safety equipment' item with name \"([^\"]*)\" has been deleted of 'Safety equipment list'$")
