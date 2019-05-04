@@ -2,8 +2,9 @@
 @department
 Feature: Department
 
-  Scenario: Departments list is displayed
-    Given 'Care4You' page is loaded
+  Background: Departments list is displayed
+    Given 'Home' page is loaded
+    Then Verify that exist "Departments" option 'menu on header'
     And click 'Departments' tab in 'Header menu'
 
   Scenario: Verify options on submenu departments
@@ -50,7 +51,5 @@ Feature: Department
 
   #Delete
   Scenario: Departments form is displayed
-    Given 'Care4You' page is loaded
-    And click 'Departments' tab in 'Header menu'
-    And click 'Create an department' menu item in 'Departments menu
-
+    And click 'Delete last department created' form information
+    And click 'Delete a department with ok' information

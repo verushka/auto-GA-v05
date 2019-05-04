@@ -17,7 +17,7 @@ public class SafetyEquipmentHome extends BasePage {
     @FindBy(id = "report-safety-equipment-menu")
     private WebElement reportSafetyEquipmentsOption;
 
-    @FindBy(id = "update-1")
+    @FindBy(id = "update-0")
     private WebElement updateSafetyEquipmentsOption;
 
     @FindBy(id = "delete-1")

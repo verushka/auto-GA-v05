@@ -1,3 +1,5 @@
+@all
+@safetyEquipment
 Feature: Safety Equipment
 
   Background: Home safety equipment page is displayed
@@ -28,7 +30,7 @@ Feature: Safety Equipment
     Then The "<e-se-code>" of 'Code' field value is displayed in 'Safety equipment list'
     Examples:
       |  e-se-code    |  e-se-name            |  e-se-description      | e-se-stock  |  e-se-image  |
-      |  SE-001 EDIT  |  Safety to fire EDIT  |  descriptions updated  |  100        |  b           |
+      |  SE-001-EDIT  |  Safety to fire EDIT  |  descriptions updated  |  1000       |  b           |
 
   #Delete
   Scenario: Safety equipment list page is displayed

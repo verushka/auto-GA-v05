@@ -1,6 +1,6 @@
 @all
 @incident
-Feature: Create and Incident
+Feature: Incidents
 
   Background: Incidents form is displayed
     Given 'Care4You' page is loaded

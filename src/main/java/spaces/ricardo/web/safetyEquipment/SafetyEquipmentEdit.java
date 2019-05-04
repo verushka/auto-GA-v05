@@ -40,7 +40,7 @@ public class SafetyEquipmentEdit extends BasePage {
     @FindBy(id = "submit-edit")
     private WebElement submitButton;
 
-    @FindBy(xpath = "//table[@id='table-safety-equipment-list']/tbody/tr[0]/td[contains(@id, 'safety-codes')]")
+    @FindBy(xpath = "//table[@id='table-safety-equipment-list']/tbody/tr[1]/td[contains(@id, 'safety-codes')]")
     private WebElement firtsRowCodeValueSafety;
 
     public void submitSafetyForm() {
@@ -56,7 +56,7 @@ public class SafetyEquipmentEdit extends BasePage {
     }
 
     public void navigateToEditSafetyEquipment(SafetyEquipment safetyEquipment) {
-        setValue(descriptionField, safetyEquipment.getCode());
+        setValue(codeField, safetyEquipment.getCode());
         setValue(nameField, safetyEquipment.getName());
         setValue(stockField, safetyEquipment.getStock().toString());
         setValueNoEditable(typeField, "INJURIES AND FRACTURES");

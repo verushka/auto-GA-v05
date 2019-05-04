@@ -10,7 +10,7 @@ Feature: Create a Safety equipment
       |  code  |  name  |  description  |  stock   |  image  |
       |  <se-code>  | <se-name> | <se-description> | <se-stock> | <se-image> |
     And click 'submit' button in 'Safety equipments Form'
-    Then verify safety Equipment item with code "<code>" exist in 'Safety equipments list'
+    Then verify safety Equipment item with code "<se-code>" exist in 'Safety equipments list'
 
     Examples:
       |  se-code  |  se-name  |  se-description  |  se-stock  |  se-image  |
