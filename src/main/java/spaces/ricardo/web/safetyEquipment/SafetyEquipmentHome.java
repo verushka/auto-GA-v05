@@ -20,7 +20,7 @@ public class SafetyEquipmentHome extends BasePage {
     @FindBy(id = "update-0")
     private WebElement updateSafetyEquipmentsOption;
 
-    @FindBy(id = "delete-1")
+    @FindBy(id = "delete-0")
     private WebElement deleteSafetyEquipmentsOption;
 
     public void openSafetyEquipmentsList() {
